@@ -27,7 +27,7 @@ function generatePassword() {
     let upr = 0;
     for (let j = 0; j < specialChar.length; j++) {
       if (password[i] === specialChar[j]) {
-        continue;
+        break;
       };
       // Will change character to upper case if not already then add to uppercase counter for loop
       if (password[i] != password[i].toUpperCase()){
@@ -44,7 +44,7 @@ function generatePassword() {
     let lwr = 0;
     for (let j = 0; j < specialChar.length; j++) {
       if (password[i] === specialChar[j]) {
-        continue;
+        break;
       };
       // Will change character to lower case if not already then add to lower case counter for loop
       if (password[i] === password[i].toLowerCase()){
