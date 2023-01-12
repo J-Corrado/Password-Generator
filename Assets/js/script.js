@@ -25,31 +25,33 @@ function generatePassword() {
   //Will iterate through the generated password to check for at least one upper case letter
   for (let i = 0; i < password.length; i++){
     let upr = 0;
-    let lwr = 0;
     for (let j = 0; j < specialChar.length; j++) {
       if (password[i] === specialChar[j]) {
-        break;
-      } else if (password[i] === password[i].toUpperCase()){
+        continue;
+      };
+      // Will change character to upper case if not already then add to uppercase counter for loop
+      if (password[i] != password[i].toUpperCase()){
+        password[i].toUpperCase();
         upr ++;
       } else {
-        password[i].toLowerCase();
-        lwr ++;
+        upr ++;
       };
-    };
+    }; 
   };
 
   //Will iterate through the generated password to check for at least one lower case letter
   for (let i = 0; i < password.length; i++){
     let lwr = 0;
-    let upr = 0;
     for (let j = 0; j < specialChar.length; j++) {
-      if (password[i] === specialChar[i]) {
-        break;
-      } else if (password[i] === password[i].toLowerCase()){
+      if (password[i] === specialChar[j]) {
+        continue;
+      };
+      // Will change character to lower case if not already then add to lower case counter for loop
+      if (password[i] === password[i].toLowerCase()){
         lwr ++;
       } else {
-        password[i].toUpperCase();
-        upr ++;
+        password[i].toLowerCase();
+        lwr ++;
       };
     };
   };
