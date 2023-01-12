@@ -8,6 +8,8 @@ char.push('"');
 specialChar = "! # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ 0 1 2 3 4 5 6 7 8 9 ";
 specialChar = specialChar.split(" ");
 specialChar.push('"');
+
+
 function generatePassword() {
   // Creates the empty password variable to add characters to
   var password = "";
@@ -19,6 +21,7 @@ function generatePassword() {
   for (let i = 0; i < minLength; i++){
     password += char[Math.floor(Math.random() * char.length)];
   };
+
   //Will iterate through the generated password to check for at least one upper case letter
   for (let i = 0; i < password.length; i++){
     let upr = 0;
@@ -34,6 +37,26 @@ function generatePassword() {
       };
     };
   };
+
+  //Will iterate through the generated password to check for at least one lower case letter
+  for (let i = 0; i < password.length; i++){
+    let lwr = 0;
+    let upr = 0;
+    for (let j = 0; j < specialChar.length; j++) {
+      if (password[i] === specialChar[i]) {
+        break;
+      } else if (password[i] === password[i].toLowerCase()){
+        lwr ++;
+      } else {
+        password[i].toUpperCase();
+        upr ++;
+      };
+    };
+  };
+
+  return password;
+};
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -41,7 +64,7 @@ function writePassword() {
 
   passwordText.value = password;
 
-}
+};
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
