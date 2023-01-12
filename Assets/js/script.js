@@ -19,6 +19,21 @@ function generatePassword() {
   for (let i = 0; i < minLength; i++){
     password += char[Math.floor(Math.random() * char.length)];
   };
+  //Will iterate through the generated password to check for at least one upper case letter
+  for (let i = 0; i < password.length; i++){
+    let upr = 0;
+    let lwr = 0;
+    for (let j = 0; j < specialChar.length; j++) {
+      if (password[i] === specialChar[j]) {
+        break;
+      } else if (password[i] === password[i].toUpperCase()){
+        upr ++;
+      } else {
+        password[i].toLowerCase();
+        lwr ++;
+      };
+    };
+  };
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
