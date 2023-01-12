@@ -8,6 +8,17 @@ char.push('"');
 specialChar = "! # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ 0 1 2 3 4 5 6 7 8 9 ";
 specialChar = specialChar.split(" ");
 specialChar.push('"');
+function generatePassword() {
+  // Creates the empty password variable to add characters to
+  var password = "";
+
+  //Sets the minimum password length
+  var minLength = 12;
+
+  // Randomly selects characters in the char variable and adds them to local password variable until the length reaches the minLength variable
+  for (let i = 0; i < minLength; i++){
+    password += char[Math.floor(Math.random() * char.length)];
+  };
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
