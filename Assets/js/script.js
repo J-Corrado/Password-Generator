@@ -47,10 +47,10 @@ function generatePassword() {
         break;
       };
       // Will change character to lower case if not already then add to lower case counter for loop
-      if (password[i] === password[i].toLowerCase()){
+      if (password[i] != password[i].toLowerCase()){
+        password[i].toLowerCase();
         lwr ++;
       } else {
-        password[i].toLowerCase();
         lwr ++;
       };
     };
