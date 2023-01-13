@@ -25,10 +25,15 @@ function generatePassword() {
   function containsUppercase(str) {
      return /[A-Z]/.test(str);
   };
+
   function containsLowercase(str) {
     return /[a-z]/.test(str);
   };
+
   // function to test against a string parameter and return a boolean of true 
+  function containsSpecial(str){
+  return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
+  };
 
   // checks against criteria using the test functions created above. If any come back false (not containing criteria), re-run the password generator function 
   if (containsUppercase(password) === true && containsLowercase(password) === true && containsSpecial(password) === true){
