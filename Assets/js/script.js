@@ -22,34 +22,37 @@ function generatePassword() {
     password += char[Math.floor(Math.random() * char.length)];
   };
 
-  function containsUppercase(str) {
-     return /[A-Z]/.test(str);
-  };
-
-  function containsLowercase(str) {
-    return /[a-z]/.test(str);
-  };
-
-  // function to test against a string parameter and return a boolean of true 
-  function containsSpecial(str){
-  return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
-  };
-
-  // checks against criteria using the test functions created above. If any come back false (not containing criteria), re-run the password generator function 
-  if (containsUppercase(password) === true && containsLowercase(password) === true && containsSpecial(password) === true){
-  return password;
-} else {
-    generatePassword();
-  }
-
+  
   return password;
 };
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
+  // function that performs a test on a string (generated password in this case) and returns a boolean value whether or not the string contains an upper case letter 
+  function containsUppercase(str) {
+     return /[A-Z]/.test(str);
+  };
+  
+  // function that performs a test on a string (generated password in this case) and returns a boolean value whether or not the string contains a lower case letter
+  function containsLowercase(str) {
+    return /[a-z]/.test(str);
+  };
+  
+  // function that performs a test on a string (generated password in this case) and returns a boolean value whether or not the string contains special characters
+  function containsSpecial(str){
+  return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
+  };
+  
+  // checks against criteria using the test functions created above. If any come back false (not containing criteria), re-run the password generator function 
+  if ( (containsUppercase(password) === true) && (containsLowercase(password) === true) && (containsSpecial(password) === true) ){
+  return password;
+  } else {
+    generatePassword();
+  }
+  var passwordText = document.querySelector("#password");
+  
   passwordText.value = password;
 
 };
