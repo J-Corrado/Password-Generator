@@ -27,6 +27,10 @@ N/A
 ---
 This web app will be used to generate strong and secure passwords for employees with access to proprietary or sensitive data/information. This can also be used for anyone looking to increase their own security whilst using devices that require users to log in.
 
+The webpage can be found using the link provided
+
+
+https://corradoj02.github.io/Password-Generator/
 
 This first image represents what the general application looks like before any passwords are generated:
 <img src="./Assets/images/main-app.png">
